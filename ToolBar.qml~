@@ -38,7 +38,7 @@ T.ToolBar {
     background: Rectangle 
     {
         implicitHeight: 40
-        color: controlRoot.palette.alternateBase
+        color: controlRoot.palette.mid
         
         Kirigami.Separator 
         {
