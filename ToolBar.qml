@@ -35,30 +35,35 @@ T.ToolBar {
 
     contentItem: Item {}
 
+    readonly property bool mainToolbar : controlRoot == T.ApplicationWindow.header
+    
     background: Rectangle 
     {
-        implicitHeight: 40
-        color: controlRoot.palette.alternateBase
+        implicitHeight: 48
+        
+        
+        color: mainToolbar ? Kirigami.Theme.backgroundColor:  Kirigami.Theme.viewBackgroundColor
         
         Kirigami.Separator 
         {
+            visible: mainToolbar
             anchors 
             {
                 left: parent.left
                 right: parent.right
-                top: parent.top               
+                top: mainToolbar ? parent.top : undefined
             }
-        }        
+        }  
         
-        Kirigami.Separator 
+         Kirigami.Separator 
         {
             anchors 
             {
                 left: parent.left
                 right: parent.right
-                top: controlRoot.parent.footer && controlRoot.parent.footer == controlRoot ? parent.top : undefined
-                bottom: controlRoot.parent.footer && controlRoot.parent.footer == controlRoot ? undefined : parent.bottom
+                bottom: parent.bottom 
             }
         }
+       
     }
 }

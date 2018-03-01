@@ -36,44 +36,36 @@
 
 import QtQuick 2.10
 import QtQuick.Controls 2.3
-import QtQuick.Controls.impl 2.3
 import QtQuick.Templates 2.3 as T
 import org.kde.kirigami 2.2 as Kirigami
 
-T.ToolButton {
+T.SwipeView {
     id: control
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem.implicitHeight + topPadding + bottomPadding)
-    baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 6
-    spacing: 6
+    contentItem: ListView {
+        model: control.contentModel
+        interactive: control.interactive
+        currentIndex: control.currentIndex
 
-    icon.width: 24
-    icon.height: 24
-    icon.color: visualFocus ? control.palette.highlight : control.palette.buttonText
-
-    contentItem: IconLabel {
         spacing: control.spacing
-        mirrored: control.mirrored
-        display: control.display
+        orientation: control.orientation
+        snapMode: ListView.SnapOneItem
+        boundsBehavior: Flickable.StopAtBounds
 
-        icon: control.icon
-        text: control.text
-        font: control.font
-        color: control.visualFocus ? control.palette.highlight : control.palette.buttonText
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        preferredHighlightBegin: 0
+        preferredHighlightEnd: 0
+        highlightMoveDuration: 250
+        maximumFlickVelocity: 4 * (control.orientation === Qt.Horizontal ? width : height)
     }
-
+    
+    
     background: Rectangle {
-        implicitWidth: 24
-        implicitHeight: 24
-        
-        radius: 3
-
-        opacity: control.down ? 1.0 : 0.5
-        color: control.down || control.checked || control.highlighted ? Kirigami.Theme.highlightColor : (control.flat ? "transparent" : control.palette.button )
+        color: Kirigami.Theme.viewBackgroundColor
     }
 }
