@@ -21,6 +21,7 @@
 
 
 import QtQuick 2.6
+import QtQuick.Controls 2.2
 import QtQuick.Templates 2.3 as T
 import org.kde.kirigami 2.2 as Kirigami
 
@@ -36,13 +37,15 @@ T.ToolBar {
     contentItem: Item {}
 
     readonly property bool mainToolbar : controlRoot == T.ApplicationWindow.header
+    readonly property bool mainFooter : controlRoot == T.ApplicationWindow.footer
+    readonly property bool isFooter : position == ToolBar.Footer
     
     background: Rectangle 
     {
         implicitHeight: 48
         
         
-        color: mainToolbar ? Kirigami.Theme.backgroundColor:  Kirigami.Theme.viewBackgroundColor
+        color: mainToolbar ? Kirigami.Theme.buttonBackgroundColor:  Kirigami.Theme.viewBackgroundColor
         
         Kirigami.Separator 
         {

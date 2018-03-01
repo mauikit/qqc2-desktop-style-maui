@@ -41,21 +41,9 @@ T.Drawer {
     rightPadding: control.edge === Qt.LeftEdge ? 1 : 0
     bottomPadding: control.edge === Qt.TopEdge ? 1 : 0
 
-    background: Rectangle {
-        color: Kirigami.Theme.backgroundColor
-        Rectangle {
-            readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
-            anchors {
-               left: control.edge !== Qt.LeftEdge ? parent.left : undefined
-               right: control.edge !== Qt.RightEdge ? parent.right : undefined
-               top: control.edge !== Qt.TopEdge ? parent.top : undefined
-               bottom: control.edge !== Qt.BottomEdge ? parent.bottom : undefined
-            }
-            color: Kirigami.Theme.textColor
-            opacity: 0.3
-            width: 1
-            height: 1
-        }
+    background: Rectangle 
+    {
+        color: Kirigami.Theme.viewBackgroundColor      
     }
 
     enter: Transition {
