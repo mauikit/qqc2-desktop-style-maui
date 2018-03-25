@@ -38,14 +38,14 @@ T.ToolBar {
 
     readonly property bool mainToolbar : controlRoot == T.ApplicationWindow.header
     readonly property bool mainFooter : controlRoot == T.ApplicationWindow.footer
-    readonly property bool isFooter : position == ToolBar.Footer
+    readonly property bool isFooter : controlRoot.position == T.ToolBar.Footer
     
     background: Rectangle 
     {
         implicitHeight: 48
         
         
-        color: mainToolbar ? Kirigami.Theme.buttonBackgroundColor:  Kirigami.Theme.viewBackgroundColor
+        color: mainToolbar || isFooter ? Kirigami.Theme.buttonBackgroundColor:  Kirigami.Theme.viewBackgroundColor
         
         Kirigami.Separator 
         {
@@ -64,7 +64,7 @@ T.ToolBar {
             {
                 left: parent.left
                 right: parent.right
-                bottom: parent.bottom 
+                bottom: isFooter? undefined : parent.bottom 
             }
         }
        
