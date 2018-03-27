@@ -43,6 +43,14 @@ import org.kde.kirigami 2.2 as Kirigami
 T.Page {
     id: control
 
+    leftPadding: 0
+    
+    topPadding: 0
+    
+    rightPadding: 0
+    
+    bottomPadding: 0
+   
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             Math.max(contentWidth,
                                      header && header.visible ? header.implicitWidth : 0,

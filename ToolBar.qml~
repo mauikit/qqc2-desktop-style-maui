@@ -58,7 +58,15 @@ T.ToolBar {
             }
         }  
         
-        
+         Kirigami.Separator 
+        {
+            anchors 
+            {
+                left: parent.left
+                right: parent.right
+                bottom: !isFooter ? parent.bottom : undefined
+            }
+        }
        
     }
 }

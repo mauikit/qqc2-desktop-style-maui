@@ -64,7 +64,7 @@ T.ToolBar {
             {
                 left: parent.left
                 right: parent.right
-                bottom: isFooter? undefined : parent.bottom 
+                bottom: !isFooter ? parent.bottom : undefined
             }
         }
        
