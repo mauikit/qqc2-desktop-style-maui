@@ -31,30 +31,33 @@ T.ToolBar {
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentHeight + topPadding + bottomPadding)
 
+    leftPadding: 11
+    rightPadding: 11
+    
     contentWidth: contentChildren[0].implicitWidth
     contentHeight: contentChildren[0].implicitHeight
 
     contentItem: Item {}
 
-    readonly property bool mainToolbar : controlRoot == T.ApplicationWindow.header
+    readonly property bool mainHeader : controlRoot == T.ApplicationWindow.header
     readonly property bool mainFooter : controlRoot == T.ApplicationWindow.footer
     readonly property bool isFooter : controlRoot.position == T.ToolBar.Footer
+    readonly property bool isHeader : controlRoot.position == T.ToolBar.Header
     
     background: Rectangle 
     {
-        implicitHeight: 48
+        implicitHeight: 48        
         
-        
-        color: mainToolbar || isFooter ? Kirigami.Theme.buttonBackgroundColor:  Kirigami.Theme.viewBackgroundColor
+        color: mainHeader || mainFooter ? Kirigami.Theme.buttonBackgroundColor :  ( isHeader || isFooter) ? Kirigami.Theme.viewBackgroundColor : Kirigami.Theme.viewBackgroundColor
         
         Kirigami.Separator 
         {
-            visible: mainToolbar
+            visible: mainHeader
             anchors 
             {
                 left: parent.left
                 right: parent.right
-                top: mainToolbar ? parent.top : undefined
+                top: mainHeader ? parent.top : undefined
             }
         }  
         
