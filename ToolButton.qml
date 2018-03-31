@@ -49,12 +49,14 @@ T.ToolButton {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 6
+    padding: 12
     spacing: 6
 
     icon.width: 24
     icon.height: 24
     icon.color: visualFocus ? control.palette.highlight : control.palette.buttonText
+    
+    flat: control.parent === T.ToolBar
 
     contentItem: IconLabel {
         spacing: control.spacing
@@ -74,6 +76,6 @@ T.ToolButton {
         radius: 3
 
         opacity: control.down ? 1.0 : 0.5
-        color: control.down || control.checked || control.highlighted ? Kirigami.Theme.highlightColor : (control.flat ? "transparent" : control.palette.button )
+        color: control.down || control.checked || control.highlighted ? Kirigami.Theme.buttonHoverColor : (control.flat ? "transparent" : control.palette.button )
     }
 }
