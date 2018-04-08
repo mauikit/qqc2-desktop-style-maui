@@ -48,7 +48,7 @@ T.ToolBar {
     {
         implicitHeight: 48        
         
-        color: mainHeader || mainFooter ? Kirigami.Theme.buttonBackgroundColor :  ( isHeader || isFooter) ? Kirigami.Theme.viewBackgroundColor : Kirigami.Theme.viewBackgroundColor
+        color: mainHeader || mainFooter ? Kirigami.Theme.buttonBackgroundColor :  ( isHeader || isFooter) ? Kirigami.Theme.backgroundColor : Kirigami.Theme.viewBackgroundColor
         
         Kirigami.Separator 
         {

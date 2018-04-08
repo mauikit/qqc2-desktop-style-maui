@@ -61,8 +61,8 @@ T.Popup {
     contentItem: Item { }
 
     background: Rectangle {
-        radius: 2
-        color: Kirigami.Theme.backgroundColor
+        radius: 3
+        color: Kirigami.Theme.viewBackgroundColor
         property color borderColor: Kirigami.Theme.textColor
         border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
         layer.enabled: true
