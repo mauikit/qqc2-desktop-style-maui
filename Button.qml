@@ -22,28 +22,31 @@
 import QtQuick 2.6
 import QtQuick.Templates 2.3 as T
 import org.kde.qqc2desktopstyle.private 1.0 as StylePrivate
-import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kirigami 2.3 as Kirigami
 
 T.Button {
     id: controlRoot
-    Kirigami.Theme.colorSet: Kirigami.Theme.Button
-    Kirigami.Theme.inherit: false
-
     implicitWidth: background.implicitWidth
     implicitHeight: background.implicitHeight
-
-    hoverEnabled: true //Qt.styleHints.useHoverEffects TODO: how to make this work in 5.7?
-
-    contentItem: Item {}
-    background: StylePrivate.StyleItem {
-        id: styleitem
-        control: controlRoot
-        elementType: "button"
-        sunken: controlRoot.pressed || (controlRoot.checkable && controlRoot.checked)
-        raised: !(controlRoot.pressed || (controlRoot.checkable && controlRoot.checked))
-        hover: controlRoot.hovered
+    hoverEnabled: true
+    contentItem: Text {
         text: controlRoot.text
-        hasFocus: controlRoot.activeFocus
-        activeControl: controlRoot.isDefault ? "default" : "f"
+        font: controlRoot.font
+         color: !controlRoot.enabled ? Kirigami.Theme.disabledTextColor :
+            controlRoot.highlighted || controlRoot.down ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.buttonTextColor
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+    }
+    
+    background: Rectangle {
+        implicitWidth: 80
+        implicitHeight: 32
+     
+        color: !controlRoot.enabled ? Kirigami.Theme.backgroundColor :
+                controlRoot.highlighted || controlRoot.down ? Kirigami.Theme.buttonFocusColor : Kirigami.Theme.buttonBackgroundColor
+        border.color: controlRoot.hovered ? Kirigami.Theme.buttonHoverColor : Qt.tint(Kirigami.Theme.textColor, Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.7))
+        border.width: Kirigami.Units.devicePixelRatio
+        radius: 3
     }
 }
