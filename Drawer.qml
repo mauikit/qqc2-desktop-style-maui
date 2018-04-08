@@ -43,7 +43,17 @@ T.Drawer {
 
     background: Rectangle 
     {
-        color: Kirigami.Theme.viewBackgroundColor      
+        color: Kirigami.Theme.viewBackgroundColor
+         Kirigami.Separator 
+        {
+            anchors 
+            {
+                left: control.edge === Qt.RightEdge ?  parent.left : undefined
+                right: control.edge === Qt.LeftEdge ? parent.right : undefined
+                top: parent.top
+                bottom: parent.bottom
+            }
+        }  
     }
 
     enter: Transition {
