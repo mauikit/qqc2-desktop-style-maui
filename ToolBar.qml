@@ -31,8 +31,8 @@ T.ToolBar {
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentHeight + topPadding + bottomPadding)
 
-    leftPadding: 11
-    rightPadding: 11
+    leftPadding: Kirigami.Units.smallSpacing*2
+    rightPadding: Kirigami.Units.smallSpacing*2
     
     contentWidth: contentChildren[0].implicitWidth
     contentHeight: contentChildren[0].implicitHeight
@@ -46,7 +46,7 @@ T.ToolBar {
     
     background: Rectangle 
     {
-        implicitHeight: 48        
+        implicitHeight: Kirigami.Units.iconSizes.medium + (Kirigami.Settings.isMobile ?  Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing)
         
         color: mainHeader || mainFooter ? Kirigami.Theme.buttonBackgroundColor :  ( isHeader || isFooter) ? Kirigami.Theme.backgroundColor : Kirigami.Theme.viewBackgroundColor
         
@@ -57,7 +57,7 @@ T.ToolBar {
             {
                 left: parent.left
                 right: parent.right
-                top: mainHeader ? parent.top : undefined
+                top: mainHeader && !Kirigami.Settings.isMobile ? parent.top : undefined
             }
         }  
         

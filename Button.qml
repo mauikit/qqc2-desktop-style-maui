@@ -40,13 +40,13 @@ T.Button {
     }
     
     background: Rectangle {
-        implicitWidth: 80
-        implicitHeight: 32
+        implicitWidth: (Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium) * 2 + Kirigami.Units.smallSpacing
+        implicitHeight: Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium 
      
         color: !controlRoot.enabled ? Kirigami.Theme.backgroundColor :
                 controlRoot.highlighted || controlRoot.down ? Kirigami.Theme.buttonFocusColor : Kirigami.Theme.buttonBackgroundColor
         border.color: controlRoot.hovered ? Kirigami.Theme.buttonHoverColor : Qt.tint(Kirigami.Theme.textColor, Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.7))
         border.width: Kirigami.Units.devicePixelRatio
-        radius: 3
+        radius: height * 0.05
     }
 }

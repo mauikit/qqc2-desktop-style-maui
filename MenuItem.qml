@@ -36,7 +36,7 @@ T.MenuItem {
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
     Layout.fillWidth: true
-    padding: 3
+    padding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
     hoverEnabled: true
 
     contentItem: Label {

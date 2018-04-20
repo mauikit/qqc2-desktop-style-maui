@@ -49,11 +49,11 @@ T.ToolButton {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 12
-    spacing: 6
+    padding: Kirigami.Units.smallSpacing
+    spacing: Kirigami.Units.smallSpacing
 
-    icon.width: 24
-    icon.height: 24
+    icon.width: Kirigami.Units.iconSizes.medium
+    icon.height: Kirigami.Units.iconSizes.medium
     icon.color: visualFocus ? control.palette.highlight : control.palette.buttonText
     
     flat: control.parent === T.ToolBar
@@ -70,12 +70,12 @@ T.ToolButton {
     }
 
     background: Rectangle {
-        implicitWidth: 24
-        implicitHeight: 24
+        implicitWidth: Kirigami.Units.iconSizes.medium
+        implicitHeight: Kirigami.Units.iconSizes.medium
         
-        radius: 3
+        radius: height * 0.05
 
         opacity: control.down ? 1.0 : 0.5
-        color: control.down || control.checked || control.highlighted ? Kirigami.Theme.buttonHoverColor : (control.flat ? "transparent" : control.palette.button )
+        color: control.flat ? "transparent" : (control.down || control.checked || control.highlighted ? Kirigami.Theme.buttonHoverColor : control.palette.button)
     }
 }

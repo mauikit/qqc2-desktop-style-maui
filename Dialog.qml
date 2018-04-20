@@ -61,7 +61,7 @@ T.Dialog {
     contentItem: Item {}
 
     background: Rectangle {
-        radius: 3
+        radius: height * 0.005
         color: Kirigami.Theme.viewBackgroundColor
         property color borderColor: Kirigami.Theme.textColor
         border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
@@ -82,12 +82,12 @@ T.Dialog {
         level: 2
         visible: control.title
         elide: Label.ElideRight
-        padding: Kirigami.Units.gridUnit
+        padding: Kirigami.Units.largeSpacing
         bottomPadding: 0
     }
 
     footer: DialogButtonBox {
         visible: count > 0
-        padding: 20
+        padding: Kirigami.Units.largeSpacing * 2
     }
 }
