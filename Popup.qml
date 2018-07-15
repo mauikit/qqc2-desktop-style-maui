@@ -36,7 +36,10 @@ T.Popup {
     contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
-    padding: 12
+    topPadding: Kirigami.Units.devicePixelRatio * 4
+    bottomPadding: Kirigami.Units.devicePixelRatio * 4
+    rightPadding: Kirigami.Units.devicePixelRatio * 2
+    leftPadding: Kirigami.Units.devicePixelRatio * 2
 
     enter: Transition {
         NumberAnimation {
@@ -61,7 +64,7 @@ T.Popup {
     contentItem: Item { }
 
     background: Rectangle {
-        radius: 3
+        radius: Kirigami.Units.devicePixelRatio * 4
         color: Kirigami.Theme.viewBackgroundColor
         property color borderColor: Kirigami.Theme.textColor
         border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
