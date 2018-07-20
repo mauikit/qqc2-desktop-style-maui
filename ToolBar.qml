@@ -54,6 +54,7 @@ T.ToolBar {
         Kirigami.Separator 
         {
             visible: mainHeader
+            color: Qt.darker(Kirigami.Theme.backgroundColor, 1.2)
             anchors 
             {
                 left: parent.left
@@ -64,6 +65,8 @@ T.ToolBar {
         
          Kirigami.Separator 
         {
+                        color: Qt.darker(Kirigami.Theme.backgroundColor, 1.2)
+
             anchors 
             {
                 left: parent.left
